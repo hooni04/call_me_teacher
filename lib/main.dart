@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:call_the_teacher/message.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: EdgeInsets.only(left: 15, right: 15),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.green,
+                    color: Color.fromARGB(255, 34, 101, 208),
                     style: BorderStyle.solid,
                     width: 3,
                   )
@@ -77,7 +78,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-            ),
+            ),  
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [ 
+                  FilledButton(onPressed: () {}, 
+                  style: FilledButton.styleFrom(
+		                backgroundColor: Color.fromARGB(255, 83, 85, 197),),
+                    child: const Text('교무실')),
+                  FilledButton(onPressed: () {}, 
+                  style: FilledButton.styleFrom(
+		                backgroundColor: Color.fromARGB(255, 83, 85, 197)),
+                    child: const Text('1학년실')),
+                  FilledButton(onPressed: () {},
+                  style: FilledButton.styleFrom(
+		                backgroundColor: Color.fromARGB(255, 83, 85, 197)),
+                     child: const Text('2학년실')),
+                  FilledButton(onPressed: () {}, 
+                  style: FilledButton.styleFrom(
+		                backgroundColor: Color.fromARGB(255, 83, 85, 197)),
+                    child: const Text('3학년실')),
+                ],
+              ),
+              ),       
             Expanded(
               child: Container(),
               flex: 10,

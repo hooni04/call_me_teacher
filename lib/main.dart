@@ -23,19 +23,24 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-
   final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+class Consume {
+  Consume();
+  final int value = 100;
+}
+
+
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
+    const teachers = [];
+    const subjects = [];
+
     return Scaffold(
       drawer: Drawer(),
       appBar: AppBar(
@@ -48,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox( height: 15,),
             Expanded(
               child: Container(
-                margin: EdgeInsets.only(left: 15, right: 15),
+                margin: const EdgeInsets.only(left: 15, right: 15),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.green,
@@ -79,8 +84,59 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Expanded(
-              child: Container(),
               flex: 10,
+              child: Container(
+                child: ListView.builder(
+                  itemCount: teachers.length,
+                  itemBuilder: (context, index) {
+                    return MenuItemButton(
+                      onPressed: () {}, 
+                      style: MenuItemButton.styleFrom(
+                        minimumSize: const Size(0, 80)
+                      ),
+                      // trailingIcon: const Text("Hello"),
+                      leadingIcon: const Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          Icon(
+                            Icons.account_circle,
+                            size: 50,
+                          ),
+                          Icon(
+                            Icons.circle,
+                            color: Colors.green,
+                            size: 10,
+                          )
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${teachers[index]} 선생님",
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+                              Text(
+                                "${subjects[index]} 담당",
+                                style: const TextStyle(
+                                  color: Colors.grey
+                                )
+                              )
+                            ],
+                          ),
+                        ],
+                      )
+                    );
+                  },
+                ),
+              ),
             )
           ],
         ),

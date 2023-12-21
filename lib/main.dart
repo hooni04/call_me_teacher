@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 108, 160, 190)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 54, 8, 118)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: '우리 앱'),
@@ -39,14 +39,15 @@ class Consume {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    const teachers = [];
-    const subjects = [];
+    const teachers = ["이승훈", "이가현"];
+    const subjects = ["물리", "윤사"];
 
     return Scaffold(
       drawer: Drawer(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        
       ),
       body: Center(
         child: Column(
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: const EdgeInsets.only(left: 15, right: 15),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Color.fromARGB(255, 34, 101, 208),
+                    color: Color.fromARGB(255, 0, 4, 9),
                     style: BorderStyle.solid,
                     width: 3,
                   )
@@ -86,24 +87,45 @@ class _MyHomePageState extends State<MyHomePage> {
             ),  
             Expanded(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [ 
-                  FilledButton(onPressed: () {}, 
-                  style: FilledButton.styleFrom(
-		                backgroundColor: Color.fromARGB(255, 83, 85, 197),),
-                    child: const Text('교무실')),
-                  FilledButton(onPressed: () {}, 
-                  style: FilledButton.styleFrom(
-		                backgroundColor: Color.fromARGB(255, 83, 85, 197)),
-                    child: const Text('1학년실')),
-                  FilledButton(onPressed: () {},
-                  style: FilledButton.styleFrom(
-		                backgroundColor: Color.fromARGB(255, 83, 85, 197)),
-                     child: const Text('2학년실')),
-                  FilledButton(onPressed: () {}, 
-                  style: FilledButton.styleFrom(
-		                backgroundColor: Color.fromARGB(255, 83, 85, 197)),
-                    child: const Text('3학년실')),
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 15, right: 10),
+                      child : TextButton(onPressed: () {}, 
+                    style: TextButton.styleFrom(
+		                  backgroundColor: Color.fromARGB(255, 219, 219, 220),),
+                      child: const Text('교무실'),),
+                    ),
+                    ),
+                  
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 10, right: 10),
+                      child : TextButton(onPressed: () {}, 
+                    style: TextButton.styleFrom(
+		                  backgroundColor: Color.fromARGB(255, 219, 219, 220),),
+                      child: const Text('1학년실'),),
+                    ),
+                    ),
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 10, right: 10),
+                      child : TextButton(onPressed: () {}, 
+                    style: TextButton.styleFrom(
+		                  backgroundColor: Color.fromARGB(255, 219, 219, 220),),
+                      child: const Text('2학년실'),),
+                    ),
+                    ),
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 10, right: 15),
+                      child : TextButton(onPressed: () {}, 
+                    style: TextButton.styleFrom(
+		                  backgroundColor: Color.fromARGB(255, 219, 219, 220),),
+                      child: const Text('3학년실'),),
+                    ),
+                    ),
                 ],
               ),
               ),       
@@ -114,7 +136,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemCount: teachers.length,
                   itemBuilder: (context, index) {
                     return MenuItemButton(
-                      onPressed: () {}, 
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) {
+                             return const Message();
+                          },)
+                        );
+                      }, 
                       style: MenuItemButton.styleFrom(
                         minimumSize: const Size(0, 80)
                       ),

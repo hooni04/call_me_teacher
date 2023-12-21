@@ -1,3 +1,4 @@
+import 'package:call_the_teacher/login_paege.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:call_the_teacher/message.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 54, 8, 118)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: '우리 앱'),
+      // home: const login_paege() //const MyHomePage(title: '우리 앱'),
+      home: const MyHomePage(title: '우리 앱')
     );
   }
 }

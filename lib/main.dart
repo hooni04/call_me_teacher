@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 54, 8, 118)),
         useMaterial3: true,
       ),
-      // home: const login_paege() //const MyHomePage(title: '우리 앱'),
-      home: const MyHomePage(title: '우리 앱')
+      home: const login_paege() 
+      // home: const MyHomePage(title: '우리 앱')
     );
   }
 }
@@ -45,7 +45,42 @@ class _MyHomePageState extends State<MyHomePage> {
     const subjects = ["물리", "윤사"];
 
     return Scaffold(
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              child: Row(
+                children: [
+                  IconButton(onPressed: () {
+                    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return const 
+          login_paege(); 
+        },
+      )
+    );
+                  }, 
+                  icon: Icon(Icons.logout_rounded)
+                  ),
+                  TextButton(onPressed: () {Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return const 
+          login_paege(); 
+        },
+      )
+    );
+    },
+     child: const Text('로그아웃')
+     ),
+
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),

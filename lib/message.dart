@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Message extends StatelessWidget{
-  const Message({ super.key });
+class MessagePage extends StatelessWidget{
+  const MessagePage({ super.key });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Expanded(
           child: Row(
@@ -16,12 +15,11 @@ class Message extends StatelessWidget{
               const Text("Teacher"), 
               IconButton(
                 onPressed: () {}, 
-                icon: Icon(Icons.search)
+                icon: const Icon(Icons.search)
               )
             ],
           )
         ),
-        
       ),
       body: Center(
         child: Column(
@@ -31,7 +29,7 @@ class Message extends StatelessWidget{
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Color.fromARGB(255, 0, 4, 9),
+                    color: const Color.fromARGB(255, 0, 4, 9),
                     style: BorderStyle.solid,
                     width: 3,
                   )
@@ -49,62 +47,58 @@ class Message extends StatelessWidget{
                                 content: Column(
                                   children: [
                                     Expanded(
+                                      flex: 10,
                                       child: Container(
-                                        margin: EdgeInsets.all(0),
                                         decoration: BoxDecoration(
                                           border: Border.all(
-                                            color: Color.fromARGB(255, 0, 4, 9),
+                                            color: const Color.fromARGB(255, 0, 4, 9),
                                             style: BorderStyle.solid,
                                             width: 3,
-                                            )
+                                          )
+                                        ),
+                                        child : Column(
+                                          children : [
+                                            const Expanded( //제목
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  hintText: '제목'
+                                                ),
+                                                textAlignVertical: TextAlignVertical.top,
                                               ),
-                                                child : Column(
-                                              children : [
-                                                const Expanded( //제목
-                                                  child: TextField(
-                                                    decoration: InputDecoration(
-                                                      border: OutlineInputBorder(),
-                                                      hintText: '제목'
-                                                      ),
-                                                      textAlignVertical: TextAlignVertical.top,
-                                                    ),
+                                            ),
+                                            const Expanded( //학번
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  hintText: '학번'
                                                 ),
-                                                 const Expanded( //학번
-                                                  child: TextField(
-                                                    decoration: InputDecoration(
-                                                      border: OutlineInputBorder(),
-                                                      hintText: '학번'
-                                                      ),
-                                                      textAlignVertical: TextAlignVertical.top,
-                                                    ),
-                                                ),
-                                                
-                                                  Expanded( //내용
-                                                 child: Container(
-                                                  child : Column(
-                                                    children: [
-                                                      Expanded(
-                                                        child: TextField(
-                                                    keyboardType: TextInputType.multiline,
-                                                      maxLines: null,
-                                                    decoration: InputDecoration(
-                                                      border: OutlineInputBorder(),
-                                                      hintText: '내용'
-                                                      ),
-                                                      textAlignVertical: TextAlignVertical.top,
-                                                    ),
+                                                textAlignVertical: TextAlignVertical.top,
+                                              ),
+                                            ),
+                                            Expanded( //내용
+                                              flex: 7,
+                                              child: Column(
+                                                children: [
+                                                  const Expanded(
                                                     flex: 100,
-                                                        ),
-                                                        Expanded(child: Container(), flex: 0,)
-                                                    ],
-                                                  )
-                                                 ),
-                                                   flex: 7,
-                                                ),
+                                                    child: TextField(
+                                                      keyboardType: TextInputType.multiline,
+                                                      maxLines: null,
+                                                      decoration: InputDecoration(
+                                                        border: OutlineInputBorder(),
+                                                        hintText: '내용'
+                                                      ),
+                                                      textAlignVertical: TextAlignVertical.top,
+                                                    ),
+                                                  ),
+                                                  Expanded(child: Container(), flex: 0,)
+                                                ],
+                                              ),
+                                            ),
                                             ],
                                           ),
                                         ),
-                                        flex: 10,
                                      ),
                                      Expanded( //취소와 전송 버튼
                                       child: Row(
@@ -114,16 +108,20 @@ class Message extends StatelessWidget{
                                             margin: const EdgeInsets.only(left: 10, right: 15,top:10),
                                             child: TextButton(
                                               onPressed: () {Navigator.pop(context);}, 
-                                              style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 244, 216, 248)),
-                                              child: Text('취소'),
+                                              style: TextButton.styleFrom(
+                                                backgroundColor: const Color.fromARGB(255, 244, 216, 248)
+                                              ),
+                                              child: const Text('취소'),
                                               ),
                                           ),
                                           Container(
                                             margin: const EdgeInsets.only(left: 10, right: 15,top:10),
                                             child: TextButton(
                                               onPressed: () {}, 
-                                              style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 244, 216, 248)),
-                                              child: Text('전송'),
+                                              style: TextButton.styleFrom(
+                                                backgroundColor: const Color.fromARGB(255, 244, 216, 248)
+                                              ),
+                                              child: const Text('전송'),
                                               ),
                                           )
                                         ],
@@ -137,8 +135,9 @@ class Message extends StatelessWidget{
                         },
                         icon: const Icon(Icons.add),
                       ),
-                      ),
-                    Expanded(
+                    ),
+                    const Expanded(
+                      flex: 5,
                       child: TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -146,7 +145,6 @@ class Message extends StatelessWidget{
                         ),
                         textAlignVertical: TextAlignVertical.center,
                       ),
-                      flex: 5,
                     ),
                     Expanded(
                       child: IconButton(
@@ -157,9 +155,8 @@ class Message extends StatelessWidget{
                   ],
                 ),
               ),
-            ),  
-            
-            ]
+            ),
+          ]
         ),
       ),
     );
